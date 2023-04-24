@@ -8,7 +8,7 @@ class Password:
        self.password = password
 
 passwords = [
-    Password('Netflix', 777-999-4560, 'Level#leeyah' ),
+    Password('Netflix', 'testtingemail@gmail.com', 'Level#leeyah' ),
     Password('Hulu', 'testingemail@gmail.com', 'Rememberthis#nf'),
     Password('Disney+', 'testingemail@gmail.com', 'You-bishvl'),
 ]
