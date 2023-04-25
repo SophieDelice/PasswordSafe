@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title> Password List  </title>
+<title> Password Cards  </title>
 {% endblock %}
 
 {% block content %}
-<h1> Password List </h1>
+<h1> Password Cards </h1>
 
 {% for password in passwords %}
 <a href="/passwords/{{ password.id }}">
