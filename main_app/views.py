@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.shortcuts import render,reverse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView 
 from .models import Password
 
 # dummy password data for prototyping 
@@ -37,3 +37,12 @@ class PasswordCreate(CreateView):
     template_name = 'passwords/password_form.html'
     success_url= '/passwords/'
 
+class PasswordUpdate(UpdateView): 
+    model = Password
+    fields = '__all__'
+    template_name = 'passwords/password_form.html'
+
+class PasswordDelete(DeleteView): 
+    model= Password
+    success_url= '/passwords/'
+    template_name = 'passwords/password_confirm_delete.html'

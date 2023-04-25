@@ -13,8 +13,11 @@
         <p> Username: {{ password.username }} </p>
         <p> Password: {{ password.password }}</p>
      </div>
+     <div class="'card-action">
+        <a href="{% url 'password_update'  password.id %}"> UPDATE </a>
+        <a href="{% url 'password_delete'  password.id %}"> DELETE </a>
+      </div>
  </div>
-
 
 {% endblock %}
 
