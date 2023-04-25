@@ -6,4 +6,5 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('passwords/', views.passwords_index, name='passwords_index'),
     path('passwords/<int:password_id>/', views.passwords_detail, name='passwords_detail'),
+    path('passwords/create/', views.PasswordCreate.as_view(), name='password_create'),
 ]

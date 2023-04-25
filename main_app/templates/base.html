@@ -25,13 +25,16 @@
     <header class="navbar-fixed">
     <nav>
         <div class="nav-wrapper">
-            <a class = "left brand-logo"  href="/"> Passwords</a>
+            <a class = "left brand-logo"  href="{% url 'home' %}"> Passwords</a>
             <ul class="right">
                 <li>
-                    <a href="/about"> About </a>
+                    <a href="{% url 'about' %}"> About </a>
                 </li>
                 <li>
-                    <a href="/passwords/"> View all Passwords</a>
+                    <a href="{% url 'passwords_index' %}"> View all Passwords</a>
+                </li>
+                <li>
+                    <a href="{% url 'password_create' %}"> Add Password Card</a>
                 </li>
             </ul>
         </div>

@@ -8,7 +8,7 @@
 <h1> Password Cards </h1>
 
 {% for password in passwords %}
-<a href="/passwords/{{ password.id }}">
+<a href="{% url 'passwords_detail' passeord.id  %}">
  <div class="card">
      <div class="card-content">
         <span class="card-title">{{ password.services }}</span>

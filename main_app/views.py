@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Password
 
 # dummy password data for prototyping 
@@ -28,3 +29,10 @@ def passwords_index(request):
 def passwords_detail(request, password_id): 
    password =  Password.objects.get(id=password_id) 
    return render(request, 'passwords/detail.html', {'password': password})
+
+
+class PasswordCreate(CreateView):
+    model = Password
+    fields = '__all__'
+    template_name = 'passwords/password_form.html'
+
