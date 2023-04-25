@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Password
 
 # dummy password data for prototyping 
 class Password:
@@ -21,4 +22,9 @@ def about(request):
     return render(request,'about.html')
 
 def passwords_index(request): 
+    #passwords = Password.objects.all()
     return render(request, 'passwords/index.html', {'passwords': passwords})
+
+def passwords_detail(request, password_id): 
+   password =  Password.objects.get(id=password_id) 
+   return render(request, 'passwords/detail.html', {'password':password})

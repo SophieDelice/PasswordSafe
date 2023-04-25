@@ -8,14 +8,16 @@
 <h1> Password List </h1>
 
 {% for password in passwords %}
+<a href="/passwords/{{ password.id }}">
  <div class="card">
      <div class="card-content">
         <span class="card-title">{{ password.services }}</span>
-        <p> Username: {{ password.username }} </p>
-        <p> Password: {{ password.password }}</p>
+        <!-- <p> Username: {{ password.username }} </p>
+        <p> Password: {{ password.password }}</p> -->
      </div>
  </div>
 
+</a>
  {% endfor %}
 
 {% endblock %}
