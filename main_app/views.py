@@ -35,4 +35,5 @@ class PasswordCreate(CreateView):
     model = Password
     fields = '__all__'
     template_name = 'passwords/password_form.html'
+    success_url= '/passwords/'
 
