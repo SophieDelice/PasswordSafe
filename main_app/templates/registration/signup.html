@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+<title> SignUp  </title>
+{% endblock %}
+
+{% block content %}
+<h1> SighUp  </h1>
+
+{% if error %}
+<p class="red-text"> {{ error }}</p>
+{% endif %}
+
+<form action="" method="POST">
+    {% csrf_token %} 
+    {{form.as_p}}
+    <input type="submit" value="SignUp" class="btn blue"> 
+</form>
+
+{% endblock %}
