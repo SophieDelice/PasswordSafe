@@ -2,11 +2,11 @@
 
 
 {% block title %}
-<title> SignUp  </title>
+<title> Signup  </title>
 {% endblock %}
 
 {% block content %}
-<h1> SighUp  </h1>
+<h1> Signup  </h1>
 
 {% if error %}
 <p class="red-text"> {{ error }}</p>
@@ -14,7 +14,7 @@
 
 <form action="" method="POST">
     {% csrf_token %} 
-    {{form.as_p}}
+    {{ form.as_p}}
     <input type="submit" value="SignUp" class="btn blue"> 
 </form>
 

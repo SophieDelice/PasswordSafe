@@ -1,8 +1,10 @@
-from django.shortcuts import render,reverse
+from django.shortcuts import render,reverse, redirect 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView 
 from .models import Passcard
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 
 import random
 import string
@@ -28,10 +30,12 @@ def home(request):
 def about(request):
     return render(request,'about.html')
 
+@login_required
 def passwords_index(request): 
-    passwords = Passcard.objects.all()
+    passwords = Passcard.objects.filter(user=request.user)
     return render(request, 'passwords/index.html', {'passwords':passwords})
 
+@login_required
 def passwords_detail(request, password_id): 
    password =  Passcard.objects.get(id=password_id) 
    return render(request, 'passwords/detail.html', {'password': password})
@@ -56,25 +60,25 @@ def generate_password(request):
 
 
 def signup(request): 
-    error_message = ''
-    if request.method == 'POST': 
+    error_message =''
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('passwords_index')
         else: 
+            print(form.errors)
             error_message = 'Invalid sign up - try again'
-        
+       
     form = UserCreationForm()
     return render(request, 'registration/signup.html', {
-        'form': form, 
-        'error': error_message 
+        'form': form , 
+        'error': error_message
     })
-       
 
 
-class PasscardCreate(CreateView):
+class PasscardCreate(LoginRequiredMixin,CreateView):
     model = Passcard
     fields = ('StreamingService', 'username', 'password')
     template_name = 'passwords/password_form.html'
@@ -83,12 +87,12 @@ class PasscardCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class PasscardUpdate(UpdateView): 
+class PasscardUpdate(LoginRequiredMixin,UpdateView): 
     model = Passcard
-    fields = '__all__'
+    fields = ('StreamingService', 'username', 'password')
     template_name = 'passwords/password_form.html'
 
-class PasscardDelete(DeleteView): 
+class PasscardDelete(LoginRequiredMixin,DeleteView): 
     model= Passcard
     success_url= '/passwords/'
     template_name = 'passwords/password_confirm_delete.html'
