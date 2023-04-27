@@ -8,8 +8,6 @@ from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 
 import random
 import string
-from django.shortcuts import render
-
 # dummy password data for prototyping 
 # class Password:
 #    def __init__(self, services, useranme, password ):
@@ -43,20 +41,23 @@ def passwords_detail(request, password_id):
 
 def generate_password(request):
     if request.method == 'POST':
-        length = int(request.POST.get('length', 8)) 
+        length = int(request.POST.get('length', 12)) # default length is 12
     else:
-        length = 8
+        length = 12 # default length is 12
     
     letters = string.ascii_letters
     digits = string.digits
     symbols = string.punctuation
-
+    
+    # Combine all characters
     all_characters = letters + digits + symbols
-
+    
+    # Generate password of specified length
     password = ''.join(random.choice(all_characters) for i in range(length))
-
+    
     context = {'password': password}
     return render(request, 'password_generator.html', context)
+
 
 
 def signup(request): 

@@ -8,10 +8,10 @@ class Passcard(models.Model):
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+         return self.StreamingService
 
-def __str__(self):
-    return self.StreamingService
-
-def get_absolute_url(self):
-    return reverse('passwords_detail', kwargs={'password_id': self.id})
+    def get_absolute_url(self):
+         return reverse('passwords_detail', kwargs={'password_id': self.id})
 
