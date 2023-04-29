@@ -8,8 +8,6 @@
 
 * Pyhton 
 
-* CSS
-
 * Django  
 
 * HTML 
@@ -31,7 +29,8 @@
 
 # Future Maintenance
 * Password Sharing between Users 
-* Additonal CSS 
+* Additional CSS 
+* Additional section that stores other passwords
 
 
 
