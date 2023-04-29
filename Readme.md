@@ -5,11 +5,9 @@
 
 
 # Technology used: 
-![Part1](./Part%201%20.png)
-![Part 2 ](./Part%202.png)
-![Part3](./Part%203.png)
-![Part4](./Part%204.png)
-![Part5](./Part%205%20.png)
+
+* Pyhton 
+
 * CSS
 
 * Django  
@@ -19,8 +17,11 @@
 * Heroku 
 
 # Screenshot(S) of website: 
-
-
+![Part1](./Part%201%20.png)
+![Part 2 ](./Part%202.png)
+![Part3](./Part%203.png)
+![Part4](./Part%204.png)
+![Part5](./Part%205%20.png)
 
 # Link to the webpage: 
 
