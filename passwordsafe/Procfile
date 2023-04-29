@@ -1,2 +1,0 @@
-web: gunicorn passwordsafe.wsgi
-WSGI_APPLICATION = 'passwordsafe.wsgi.application'

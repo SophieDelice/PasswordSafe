@@ -82,7 +82,11 @@ WSGI_APPLICATION = 'passwordsafe.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'passwordsafe',
+        'NAME': 'delicesophie824/passwordsafe-app',
+        'USER': 'delicesophie824',
+        'PASSWORD': 'v2_43bZs_iqnxWPx6S59p2BaYfTguJcC',
+        'HOST': 'db.bit.io',
+        'PORT': '5432',
     }
 }
 
